@@ -8,15 +8,11 @@
       <meta http-equiv="content-style-type" content="text/css">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<!--       <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
   		<link rel="stylesheet" href="assets/css/style.css">
 
-  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-      <script src="assets/js/script.js"></script>
 
       <link rel="shortcut icon" href="http://faviconist.com/icons/b19e2a213bbbc777e180ee045ed8ecdc/favicon.ico" />
 	</head>
@@ -443,10 +439,10 @@
               </li>
 
               <li>
-                <span class="skill-title">Ruby on Rails</span>
+                <span class="skill-title">PHP</span>
                 <span class="pull-right skill-stars">
                 <span class="glyphicon glyphicon-star f"></span>               
-                <span class="glyphicon glyphicon-star e"></span>       
+                <span class="glyphicon glyphicon-star f"></span>       
                 <span class="glyphicon glyphicon-star e"></span>       
                 <span class="glyphicon glyphicon-star e"></span> 
                 <span class="glyphicon glyphicon-star e"></span>
@@ -710,8 +706,8 @@
                   <h3 class="modal-title">Interactive Resume</h3>
               </div>
                   <div class="modal-body">
-                    <p><strong>Description:</strong> This is the first front end experience. I used a lot of Boostrap grid layout to help design my layout. I worked mainly in HTML and CSS, though some JQuery and JS were needed for smooth scrolling and modal pop-ups. I update frequently and the next step is to make the site more responsive to scale better with mobile screens.  </p>
-                    <p><strong>Skills:</strong> HTML5, CSS3, JQuery, Javascript, Bootstrap Framework</p>
+                    <p><strong>Description:</strong> This is the first front end experience. I used a lot of Boostrap grid layout to help design my layout. I worked mainly in HTML and CSS, though some JQuery and JS were needed for smooth scrolling and modal pop-ups. I used PHP and Ajax POST method to forward the contact information to my email address. I update frequently and the next step is to make the site more responsive to scale better with mobile screens and tablets.  </p>
+                    <p><strong>Skills:</strong> HTML5, CSS3, JQuery, Javascript, Bootstrap Framework, PHP, Ajax</p>
                     <p><strong>Course &amp; Year:</strong> Personal Project, June 2015 </p>
                   </div>
               </div>
@@ -925,39 +921,42 @@
         <h2>Contact</h2>
         <hr>
         <div class="row">
-          <div class="col-md-6">
-            <form class="form-horizontal">
+          <div class="col-md-6" id="right">
+
+            <div id="form-messages"></div>
+
+            <form class="form-horizontal" id="ajax-contact" method="post" action="assets/php/mailer.php">
               <div class="form-group">
-                <label for="inputName" id="labels" class="col-sm-2 control-label">Name<span id="asterick">&#42;</span></label>
+                <label for="name" id="labels" class="col-sm-2 control-label">Name<span id="asterick">&#42;</span></label>
                 <div class="col-sm-9">
-                  <input type="name" class="form-control" placeholder="Name">
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="inputEmail" id="labels" class="col-sm-2 control-label">Email<span id="asterick">&#42;</span></label>
+                <label for="email" id="labels" class="col-sm-2 control-label">Email<span id="asterick">&#42;</span></label>
                 <div class="col-sm-9">
-                  <input type="email" class="form-control" placeholder="Email">
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="inputMessage" id="labels" class="col-sm-2 control-label">Message<span id="asterick">&#42;</span></label>
+                <label for="message" id="labels" class="col-sm-2 control-label">Message<span id="asterick">&#42;</span></label>
                 <div class="col-sm-9">
-                  <textarea class="form-control" rows="3" placeholder="Ex) Found a bug on your site. Might want to fix it."></textarea>
+                  <textarea class="form-control" name="message" id="message" rows="4" placeholder="This form is not currently working. Please use the email icon on the right. Will fix this soon!" required></textarea>
                 </div>
               </div>
 
-              <div class="form-group">
+<!--               <div class="form-group">
                 <label for="inputQuestion" id="labels" class="col-sm-2 control-label">1+9=<span id="asterick">&#42;</span></label>
                 <div class="col-sm-9">
-                  <input type="question" class="form-control" placeholder="Ten">
+                  <input type="number" name="captcha" class="form-control" placeholder="Ten">
                 </div>
-              </div>
+              </div> -->
 
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-9">
-                  <button type="submit" class="btn btn-default">Submit</button>
+                  <button type="submit" id="submit" class="btn btn-default">Submit</button>
                 </div>
               </div>
             </form>
@@ -981,12 +980,18 @@
       </footer>
     </div>
 
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <!--       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
 	</body>
 </html>
 
 
 <!-- To Do's Still -->
 
+<!-- split the skills to abilities and tools -->
+<!-- Split projects to 2 sections: school projects and side projects. Add Craiglist redesign to school projects. -->
 <!-- 1. Complete Project Section. Need a modal carousel to describe the projects and skills involved in them. -->
 <!-- 2. Figure out how to take user input data for contacts boxes, and send it to yourself via email or something. -->
 
